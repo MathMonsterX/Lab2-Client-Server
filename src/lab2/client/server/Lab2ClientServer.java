@@ -5,6 +5,8 @@
  */
 package lab2.client.server;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Sheyla
@@ -15,7 +17,10 @@ public class Lab2ClientServer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        JFrame clientView = new JFrame();
+        clientView.add( new EchoClientMainView() );
+        clientView.pack();
+        clientView.setVisible(true);
     }
     
 }
