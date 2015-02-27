@@ -29,28 +29,33 @@ public class EchoClientMainView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        txtMessage = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        messageLog = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(102, 255, 102));
         setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField1.setText("jTextField1");
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtMessage.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtMessage.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField1FocusGained(evt);
+                txtMessageFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField1FocusLost(evt);
+                txtMessageFocusLost(evt);
+            }
+        });
+        txtMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMessageActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        messageLog.setEditable(false);
+        messageLog.setColumns(20);
+        messageLog.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        messageLog.setRows(5);
+        jScrollPane1.setViewportView(messageLog);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -60,33 +65,37 @@ public class EchoClientMainView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(txtMessage))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        jTextField1.setBackground( new Color(jTextField1.getBackground().getRed(),jTextField1.getBackground().getGreen(),jTextField1.getBackground().getBlue(),127));
-    }//GEN-LAST:event_jTextField1FocusGained
+    private void txtMessageFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMessageFocusLost
+        txtMessage.setBackground( new Color(txtMessage.getBackground().getRed(),txtMessage.getBackground().getGreen(),txtMessage.getBackground().getBlue(),255));
+    }//GEN-LAST:event_txtMessageFocusLost
 
-    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-        jTextField1.setBackground( new Color(jTextField1.getBackground().getRed(),jTextField1.getBackground().getGreen(),jTextField1.getBackground().getBlue(),255));
-    }//GEN-LAST:event_jTextField1FocusLost
+    private void txtMessageFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMessageFocusGained
+        txtMessage.setBackground( new Color(txtMessage.getBackground().getRed(),txtMessage.getBackground().getGreen(),txtMessage.getBackground().getBlue(),127));
+    }//GEN-LAST:event_txtMessageFocusGained
+
+    private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMessageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea messageLog;
+    private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables
 
     
