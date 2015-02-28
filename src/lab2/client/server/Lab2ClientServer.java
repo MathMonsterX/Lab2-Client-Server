@@ -6,6 +6,7 @@
 package lab2.client.server;
 
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Lab2ClientServer {
      */
     public static void main(String[] args) {
         JFrame clientView = new JFrame();
+        clientView.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         EchoClientMainView view = new EchoClientMainView() ; 
         EchoClientController controller = new EchoClientController();

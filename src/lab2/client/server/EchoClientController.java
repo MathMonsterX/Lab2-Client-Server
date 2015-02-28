@@ -27,7 +27,7 @@ public class EchoClientController implements Controller{
     
     public void messageListener( String msg, String user )
     {
-        model.logMessage( msg, "ERROR MESSAGE" );
+        model.logMessage( msg, user );
         handleUserMessage( msg, user );
     }
     

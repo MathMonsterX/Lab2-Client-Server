@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public class MessagingModel {
     
-    List<Controller> views;
+    List<Controller> views = new ArrayList();
     
     public void addController( Controller newController ){ views.add(newController); }
     public void updateValue( String value ){}
@@ -36,8 +37,9 @@ public class MessagingModel {
         try {
             f = new File("log.txt");
             if(!f.exists()) f.createNewFile();
-            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f)));
-            bw.append(txt + "/n");
+            bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f, true)));
+            
+            bw.append( txt + "\n");
         } catch (IOException ex) {
             // report
             System.out.println(ex.getMessage());
