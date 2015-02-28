@@ -26,20 +26,25 @@ public class MessagingModel {
     public void updateValue( String value ){}
     private void updateControllers(){}
     
-    public void logMessage( String txt )
+    
+    public void logMessage( String txt, String sender )
     {
         BufferedWriter bw = null;
         File f = null;
-        txt = (new Date()).toString() + ": " + txt;
+        txt = (new Date()).toString() + ": " + sender + ": " + txt;
         
         try {
             f = new File("log.txt");
             if(!f.exists()) f.createNewFile();
             bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f)));
-            bw.append(txt);
+            bw.append(txt + "/n");
         } catch (IOException ex) {
             // report
-            System.out.println("Error logging message");
+            System.out.println(ex.getMessage());
+            //Can I be sure that the file is always there?
+            //Assuming I can...this should be ok...
+            //Assuming I can't...that's a lot of memory...
+            //logMessage(ex.getMessage());
         } finally {
             try {bw.close();} catch (Exception ex) {}
         }

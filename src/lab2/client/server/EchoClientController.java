@@ -22,12 +22,13 @@ public class EchoClientController implements Controller{
     public void setView(EchoClientMainView view){ this.view = view; }
     public void setModel(MessagingModel model){ this.model = model; }
 
-    public void handleUserMessage( String msg ){}
+    public void handleUserMessage( String msg, String user ){}
     public void handleServerMessage(){}
-    public void messageListener( javax.swing.JTextField msg )
+    
+    public void messageListener( String msg, String user )
     {
-        model.logMessage(msg.getText().trim());
-        handleUserMessage( msg.getText().trim() );
+        model.logMessage( msg, "ERROR MESSAGE" );
+        handleUserMessage( msg, user );
     }
     
     public void updateErrorText(String e){ view.setlblErrorText(e); }

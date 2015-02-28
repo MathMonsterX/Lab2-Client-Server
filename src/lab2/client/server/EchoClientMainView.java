@@ -13,6 +13,7 @@ import java.awt.Color;
  */
 public class EchoClientMainView extends javax.swing.JPanel {
 
+    final String username = System.getProperty("user.name");
     EchoClientController controller;
     
     /**
@@ -20,6 +21,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
      */
     public EchoClientMainView() {
         initComponents();
+        
     }
 
     public void setMessagesPane( String m ){ txtMessage.setText( txtMessage.getText() + "/n" + m );}
@@ -43,6 +45,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
         setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
 
         txtMessage.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtMessage.setText("Place text here and press ENTER to send");
         txtMessage.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtMessageFocusGained(evt);
@@ -73,10 +76,10 @@ public class EchoClientMainView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                    .addComponent(txtMessage, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lblError)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMessage)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -84,10 +87,10 @@ public class EchoClientMainView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblError)
+                .addGap(39, 39, 39)
+                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblError)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -101,7 +104,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
     }//GEN-LAST:event_txtMessageFocusGained
 
     private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed
-        // TODO add your handling code here:
+        controller.messageListener(txtMessage.getText().trim(), username);
     }//GEN-LAST:event_txtMessageActionPerformed
 
 
