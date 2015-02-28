@@ -22,11 +22,9 @@ public class EchoClientMainView extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setData(){}
-    public void setController(EchoClientController controller)
-    {
-        this.controller = controller;
-    }
+    public void setMessagesPane( String m ){ txtMessage.setText( txtMessage.getText() + "/n" + m );}
+    public void setlblErrorText( String e ){ lblError.setText(e); }
+    public void setController(EchoClientController controller){ this.controller = controller; }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +37,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
         txtMessage = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         messageLog = new javax.swing.JTextArea();
+        lblError = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 255, 102));
         setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -64,6 +63,8 @@ public class EchoClientMainView extends javax.swing.JPanel {
         messageLog.setRows(5);
         jScrollPane1.setViewportView(messageLog);
 
+        lblError.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,17 +73,22 @@ public class EchoClientMainView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                    .addComponent(txtMessage))
+                    .addComponent(txtMessage, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(lblError)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,6 +107,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblError;
     private javax.swing.JTextArea messageLog;
     private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables

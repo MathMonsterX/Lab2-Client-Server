@@ -15,7 +15,9 @@ public class EchoClientController implements Controller{
 
     EchoClientMainView view;
     MessagingModel model;
-    Socket s = new Socket();
+    Socket s;// = new Socket();
+    final int SERVERPORT = 7000;
+    
     
     public void setView(EchoClientMainView view){ this.view = view; }
     public void setModel(MessagingModel model){ this.model = model; }
@@ -28,6 +30,7 @@ public class EchoClientController implements Controller{
         handleUserMessage( msg.getText().trim() );
     }
     
+    public void updateErrorText(String e){ view.setlblErrorText(e); }
     @Override
     public void update(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
