@@ -18,9 +18,13 @@ public class Lab2ClientServer {
      */
     public static void main(String[] args) {
         JFrame clientView = new JFrame();
-        clientView.add( new EchoClientMainView() );
+        
+        EchoClientMainView ecmv = new EchoClientMainView() ; 
+        clientView.add( ecmv );
         clientView.pack();
         clientView.setVisible(true);
+        
+        
     }
     
 }

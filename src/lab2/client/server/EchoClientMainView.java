@@ -13,6 +13,8 @@ import java.awt.Color;
  */
 public class EchoClientMainView extends javax.swing.JPanel {
 
+    EchoClientController controller;
+    
     /**
      * Creates new form ClientMainView
      */
@@ -20,6 +22,11 @@ public class EchoClientMainView extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void setData(){}
+    public void setController(EchoClientController controller)
+    {
+        this.controller = controller;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -5,12 +5,28 @@
  */
 package lab2.client.server;
 
+import java.net.Socket;
+
 /**
  *
  * @author Sheyla
  */
 public class EchoClientController implements Controller{
 
+    EchoClientMainView view;
+    MessagingModel model;
+    Socket s = new Socket();
+    
+    public void setView(EchoClientMainView view){ this.view = view; }
+    public void setModel(MessagingModel model){ this.model = model; }
+
+    public void handleUserMessage(){}
+    public void handleServerMessage(){}
+    public void messageListener( javax.swing.JTextField txt )
+    {
+        
+    }
+    
     @Override
     public void update(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
