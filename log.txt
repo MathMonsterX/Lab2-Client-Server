@@ -1,6 +1,0 @@
-java.io.BufferedWriter@1f701a6Fri Feb 27 20:57:11 PST 2015: Sheyla: Yeah I"m just sending you weird messages
-java.io.BufferedWriter@162595cFri Feb 27 21:00:38 PST 2015: Sheyla: Place text here and press ENTER to send
-java.io.BufferedWriter@1cea13bFri Feb 27 21:00:42 PST 2015: Sheyla: and another
-java.io.BufferedWriter@7e0b98Fri Feb 27 21:00:45 PST 2015: Sheyla: and another
-java.io.BufferedWriter@d7d813Fri Feb 27 21:00:52 PST 2015: Sheyla: Place text here and press ENTER to send
-java.io.BufferedWriter@45c9e1Fri Feb 27 21:00:54 PST 2015: Sheyla: rkjngfurdhngwsdhng
