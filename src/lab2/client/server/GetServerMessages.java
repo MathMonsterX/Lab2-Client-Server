@@ -11,12 +11,12 @@ package lab2.client.server;
  *
  * @author Sheyla
  */
-public class RunnableThread implements Runnable{
+public class GetServerMessages implements Runnable{
 
     Thread worker;
     
-    public RunnableThread(){}
-    public RunnableThread( String threadName )
+    public GetServerMessages(){}
+    public GetServerMessages( String threadName )
     {
         worker = new Thread(this, threadName);
         worker.start();
