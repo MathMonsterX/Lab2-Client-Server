@@ -29,15 +29,6 @@ public class EchoClientMainView extends javax.swing.JPanel {
     }
 
     /**
-     * Sets the text of the text area messageLog. 
-     * Each new message is entered on a new line.
-     * @param m     The message to add to the text area
-     * 
-     * @see messageLog
-     */
-    //public void setMessagesPane( String m ){ messageLog.setText( messageLog.getText() + "\n" + m );}
-
-    /**
      * Sets the controller of the view. 
      * Controls the updating of the view's components.
      * @param controller    The controller that is used to update the view
