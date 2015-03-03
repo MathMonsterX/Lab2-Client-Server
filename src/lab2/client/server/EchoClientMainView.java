@@ -9,7 +9,6 @@
  */
 package lab2.client.server;
 
-import java.awt.Color;
 import java.util.Date;
 
 /**
@@ -29,7 +28,20 @@ public class EchoClientMainView extends javax.swing.JPanel {
         
     }
 
-    public void setMessagesPane( String m ){ messageLog.setText( messageLog.getText() + "\n" + m );}
+    /**
+     * Sets the text of the text area messageLog. 
+     * Each new message is entered on a new line.
+     * @param m     The message to add to the text area
+     * 
+     * @see messageLog
+     */
+    //public void setMessagesPane( String m ){ messageLog.setText( messageLog.getText() + "\n" + m );}
+
+    /**
+     * Sets the controller of the view. 
+     * Controls the updating of the view's components.
+     * @param controller    The controller that is used to update the view
+     */
     public void setController(EchoClientController controller){ this.controller = controller; }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,6 +100,13 @@ public class EchoClientMainView extends javax.swing.JPanel {
         txtMessage.setText("");
     }//GEN-LAST:event_txtMessageActionPerformed
 
+    /**
+     * Sets the text of the text area messageLog. 
+     * Each new message is entered on a new line.
+     * @param msg     The message to add to the text area
+     * 
+     * @see messageLog
+     */
     public void postMessage( String msg ){ messageLog.append( msg ); }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
