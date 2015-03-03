@@ -81,6 +81,7 @@ public class Client implements Runnable {
      * HANDLES RECEIVING MESSAGES.
      */
     public void run() {
+        char[] buff = new char[500];
         while( true ) {
             System.out.println(Thread.currentThread());
             // receiving a message
@@ -89,7 +90,9 @@ public class Client implements Runnable {
             String msg ;
             try {
                 //read in message from server
-                msg = br.readLine();
+                int len = br.read(buff);
+                msg = new String(buff, 0, len);
+                
                 //display the message to the user
                 ec.handleServerMessages( msg );
             } catch (IOException ex) {
