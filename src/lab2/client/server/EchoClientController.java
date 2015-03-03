@@ -18,11 +18,13 @@ public class EchoClientController implements Controller{
     Socket s;// = new Socket();
     final int SERVERPORT = 7000;
     
-    
     public void setView(EchoClientMainView view){ this.view = view; }
     public void setModel(MessagingModel model){ this.model = model; }
 
-    public void handleUserMessage( String msg, String user ){}
+    public void handleUserMessage( String msg, String user )
+    {
+        
+    }
     public void handleServerMessage(){}
     
     public void messageListener( String msg, String user )

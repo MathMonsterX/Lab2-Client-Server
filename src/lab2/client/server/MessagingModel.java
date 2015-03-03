@@ -22,11 +22,14 @@ import java.util.List;
 public class MessagingModel {
     
     List<Controller> views = new ArrayList();
+    GetServerMessages getServerMessages;
+    SendMessages sendMessages = new SendMessages();
     
     public void addController( Controller newController ){ views.add(newController); }
     public void updateValue( String value ){}
     private void updateControllers(){}
     
+    connectToServer(){ = new GetServerMessages("getMessages", "152.117.177.191", 54321); }
     
     public void logMessage( String txt, String sender )
     {
