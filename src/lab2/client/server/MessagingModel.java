@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: Sheyla Trudo
+ * Course: CSCE 320
+ * Semester: Spring 2015
+ * Language: Java
+ * IDE: Netbeans 8.0.2
+ * Date: 3/2/2015
+ * 
  */
 package lab2.client.server;
 
@@ -10,10 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  *

@@ -2,6 +2,8 @@
  * Name: Sheyla Trudo
  * Course: CSCE 320
  * Semester: Spring 2015
+ * Language: Java
+ * IDE: Netbeans 8.0.2
  * Date: 3/2/2015
  * 
  */

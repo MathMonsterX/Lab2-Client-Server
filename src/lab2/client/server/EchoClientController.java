@@ -1,12 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: Sheyla Trudo
+ * Course: CSCE 320
+ * Semester: Spring 2015
+ * Language: Java
+ * IDE: Netbeans 8.0.2
+ * Date: 3/2/2015
+ * 
  */
 package lab2.client.server;
-
-import java.io.IOException;
-import java.util.Date;
 
 /**
  *
@@ -22,35 +23,36 @@ public class EchoClientController implements Controller{
     public void setModel(MessagingModel model){ this.model = model; }
     public void setClient( Client client ){ this.client = client; }
     
+    void listenForServerMessages() {
+        try {
+            client.goSocket();
+        } catch (Exception ex) {
+            updateErrorText(ex.getMessage());
+        }
+    }
+    
     void handleServerMessages( String msg ) {
         model.logMessage(msg);
         view.postMessage(msg);
     }
     
-    public void messageListener( String msg, String user )
+    public void messageListener( String msg )
     {
-        msg = (new Date().toString() + ": " + user + ": " + msg);
-        //model.logMessage( msg );
         try {
             client.sendMessage(msg);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             updateErrorText(ex.getMessage());
         }
     }
     
-    public void updateErrorText(String e){ view.setlblErrorText(e); model.logMessage(e); }
+    public void updateErrorText(String e){ view.setMessagesPane(e); model.logMessage(e); }
+    
     @Override
     public void update(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void listenForServerMessages() {
-        try {
-            client.goSocket();
-        } catch (IOException ex) {
-            updateErrorText(ex.getMessage());
-        }
-    }
+    
 
     
     

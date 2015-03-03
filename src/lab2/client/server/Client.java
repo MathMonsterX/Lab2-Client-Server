@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Name: Sheyla Trudo
+ * Course: CSCE 320
+ * Semester: Spring 2015
+ * Language: Java
+ * IDE: Netbeans 8.0.2
+ * Date: 3/2/2015
+ * 
  */
 package lab2.client.server;
 
@@ -12,8 +16,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -35,13 +37,25 @@ public class Client implements Runnable {
         os = CLIENT.getOutputStream() ;
     }
 
-    public void goSocket() throws IOException {
+    /**
+     * Creates a new thread and begins to run.
+     * @throws Exception    Underlying methods may throw an exception.
+     * @see Client.run()
+     */
+    public void goSocket() throws Exception {
         worker = new Thread( this ) ;
         worker.start() ;  // calls run() in the new Thread
     }
 
     // send messages to the server
-    public void sendMessage( String msg ) throws IOException {
+
+    /**
+     * A separate thread method prepares the message to be sent here 
+     * and writes the byte stream to the server.
+     * @param msg   The message to be sent.
+     * @throws Exception
+     */
+        public void sendMessage( String msg ) throws Exception {
         
         DataOutputStream dos = new DataOutputStream( os ) ;
         
@@ -55,7 +69,10 @@ public class Client implements Runnable {
     }
         
     @Override
-    // get messages from the server
+    /**
+     * Gets messages from the server and sends them 
+     * to the controller to be handled.
+     */
     public void run() {
         while( true ) {
             // receiving a message
@@ -65,11 +82,10 @@ public class Client implements Runnable {
             try {
                 //read in message from server
                 msg = br.readLine();
-                
                 //display the message to the user
                 ec.handleServerMessages( msg );
             } catch (IOException ex) {
-                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                ec.updateErrorText(ex.getMessage());
             }
             
         }
