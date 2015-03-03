@@ -23,7 +23,7 @@ public class Lab2ClientServer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JFrame clientView = new JFrame();
+        JFrame clientView = new JFrame("First Java Messenger");
         clientView.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         EchoClientMainView view = new EchoClientMainView() ; 

@@ -98,7 +98,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
      * 
      * @see messageLog
      */
-    public void postMessage( String msg ){ messageLog.append( msg ); }
+    public void postMessage( String msg ){ messageLog.append( msg ); }//messageLog.setText( messageLog.getText() + "\n" + msg); }//
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

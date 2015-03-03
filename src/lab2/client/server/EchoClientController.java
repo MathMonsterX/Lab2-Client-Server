@@ -89,6 +89,10 @@ public class EchoClientController {
      * 
      * @param e    The error message
      */
-    public void updateErrorText(String e){ view.postMessage(e); model.logMessage(e); } 
+    public void updateErrorText(String e)
+    { 
+        view.postMessage(e); 
+        model.logMessage(e); 
+    } 
     
 }
