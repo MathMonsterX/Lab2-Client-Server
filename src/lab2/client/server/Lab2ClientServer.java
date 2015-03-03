@@ -8,8 +8,6 @@
 package lab2.client.server;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -29,20 +27,20 @@ public class Lab2ClientServer {
         EchoClientMainView view = new EchoClientMainView() ; 
         EchoClientController controller = new EchoClientController();
         MessagingModel model = new MessagingModel();
-        Client client;
         
         view.setController(controller);
         controller.setView(view);
         controller.setModel(model);
+        clientView.add( view );
         try {
             controller.setClient( new Client( "152.117.177.191", 54321, controller) );
         } catch (IOException ex) {
-            Logger.getLogger(Lab2ClientServer.class.getName()).log(Level.SEVERE, null, ex);
+            controller.updateErrorText(ex.getMessage());
         }
         
         model.addController(controller);
         
-        clientView.add( view );
+        
         clientView.pack();
         clientView.setVisible(true);
         

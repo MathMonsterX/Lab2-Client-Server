@@ -6,10 +6,7 @@
 package lab2.client.server;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -33,16 +30,15 @@ public class EchoClientController implements Controller{
     public void messageListener( String msg, String user )
     {
         msg = (new Date().toString() + ": " + user + ": " + msg);
-        model.logMessage( msg );
+        //model.logMessage( msg );
         try {
             client.sendMessage(msg);
         } catch (IOException ex) {
-            model.logMessage(ex.getMessage());
-            view.setlblErrorText(ex.getMessage());
+            updateErrorText(ex.getMessage());
         }
     }
     
-    public void updateErrorText(String e){ view.setlblErrorText(e); }
+    public void updateErrorText(String e){ view.setlblErrorText(e); model.logMessage(e); }
     @Override
     public void update(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -52,8 +48,7 @@ public class EchoClientController implements Controller{
         try {
             client.goSocket();
         } catch (IOException ex) {
-            model.logMessage(ex.getMessage());
-            view.setlblErrorText(ex.getMessage());
+            updateErrorText(ex.getMessage());
         }
     }
 

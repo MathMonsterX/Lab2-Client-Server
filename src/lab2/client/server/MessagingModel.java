@@ -21,9 +21,9 @@ import java.util.List;
  */
 public class MessagingModel {
     
-    List<Controller> views = new ArrayList();
+    EchoClientController view;
     
-    public void addController( Controller newController ){ views.add(newController); }
+    public void addController( EchoClientController newController ){ view = newController; }
     public void updateValue( String value ){}
     
     public void logMessage( String txt )
@@ -39,13 +39,13 @@ public class MessagingModel {
             bw.append( txt + "\n");
         } catch (IOException ex) {
             // report
-            System.out.println(ex.getMessage());
+            view.updateErrorText(ex.getMessage());
             //Can I be sure that the file is always there?
             //Assuming I can...this should be ok...
             //Assuming I can't...that's a lot of memory...
             //logMessage(ex.getMessage());
         } finally {
-            try {bw.close();} catch (Exception ex) {}
+            try {bw.close();} catch (Exception ex) { view.updateErrorText(ex.getMessage());}
         }
     }
     
