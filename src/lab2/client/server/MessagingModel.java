@@ -25,8 +25,6 @@ public class MessagingModel {
     
     public void addController( Controller newController ){ views.add(newController); }
     public void updateValue( String value ){}
-    private void updateControllers(){}
-    
     
     public void logMessage( String txt )
     {

@@ -1,0 +1,247 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset128 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset128 DejaVu Sans;}{\f5\fswiss\fprq2\fcharset128 Liberation Sans{\*\falt Arial};}{\f6\fmodern\fprq1\fcharset128 DejaVu Sans Mono;}{\f7\fnil\fprq0\fcharset128 Lohit Hindi;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033 Normal;}
+{\s15\sbasedon0\snext16{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb240\sa120\keepn\cf0\kerning1\hich\af3\langfe2052\dbch\af5\loch\f5\fs28\lang1033 Heading;}
+{\s16\sbasedon0\snext16{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb0\sa120\cf0\kerning1\hich\af4\langfe2052\dbch\af3\loch\f3\fs24\lang1033 Text body;}
+{\s17\sbasedon16\snext17{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb0\sa120\cf0\kerning1\hich\af4\langfe2052\dbch\af3\loch\f3\fs24\lang1033 List;}
+{\s18\sbasedon0\snext18{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb120\sa120\cf0\i\kerning1\hich\af4\langfe2052\dbch\af7\ai\loch\f3\fs24\lang1033 Caption;}
+{\s19\sbasedon0\snext19{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af4\langfe2052\dbch\af3\loch\f3\fs24\lang1033 Index;}
+{\s20\sbasedon0\snext20{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb120\sa120\cf0\i\kerning1\hich\af4\langfe2052\dbch\af3\ai\loch\f3\fs24\lang1033 caption;}
+}{\info{\author george }{\creatim\yr2011\mo3\dy4\hr8\min30}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr2012\mo2\dy17\hr11\min37}{\comment LibreOffice}{\vern3300}}\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709
+
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse195\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\pgdscnxt0 Standard;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1134\margr1134\margt1134\margb1134\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+\pgndec\pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\qc\ltrpar{\i0\b\dbch\af4\ai0\ab\rtlch \ltrch\loch\loch\f4
+Java Threads}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Threading is needed when a program needs to be handling two or more different kinds of blocking or otherwise time consuming computations at the same time.  A blocking computation is one where the program must wait for something to happen (e.g. the user to do something or a network message to arrive).  When these computations are asynchronous (can happen at arbitrary times independently of each other) then separate threads of execution are needed.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+An important (and confusing) point with threads is that a thread can execute code belonging to different objects at different times.  For example, suppose thread A is running a method in object One.  If that method calls a method in object Two then the code from object Two is executed in thread A.  So, while a Thread is started with code from some object, a thread can execute code from any object.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\b\dbch\af4\ab\rtlch \ltrch\loch\loch\f6
+Java}{\dbch\af4\rtlch \ltrch\loch\loch\f6
+ has the class }{\i\b\dbch\af4\ai\ab\rtlch \ltrch\loch\loch\f6
+Thread}{\dbch\af4\rtlch \ltrch\loch\loch\f6
+ and the interface }{\i\b\dbch\af4\ai\ab\rtlch \ltrch\loch\loch\f6
+Runnable}{\dbch\af4\rtlch \ltrch\loch\loch\f6
+ for this problem.  They are very similar and overlap in many ways.  In fact, }{\i\b\dbch\af4\ai\ab\rtlch \ltrch\loch\loch\f6
+Thread}{\dbch\af4\rtlch \ltrch\loch\loch\f6
+ implements }{\i\b\dbch\af4\ai\ab\rtlch \ltrch\loch\loch\f6
+Runnable }{\dbch\af4\rtlch \ltrch\loch\loch\f6
+and it is largely a matter of your preference as to which you use.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+In the Echo Client-Server application, there are two programs and each of them needs to be able to read and write messages asynchronously.  The Server program receives connections from Clients and keeps a list of connected Clients.  When a Client sends a message to the Server the Server then sends the message to all the other Clients.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+The Client needs to be able to read a message from the Server at any time.  In addition, it needs to be ready to get a message from the local user and send it to the Server.  Neither of these tasks should have to wait for the other.  Putting these two tasks in separate threads of execution solves the problem.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Here is an outline of how you could set up a client with two threads using }{\i\b\dbch\af4\ai\ab\rtlch \ltrch\loch\loch\f6
+Runnable}{\dbch\af4\rtlch \ltrch\loch\loch\f6
+:}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+class Client implements Runnable \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Thread worker ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public Client( \'81\'63 ) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// get messages from the server}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void run() \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+while(1) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+read a message // blocks waiting for a message}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+display the message to the user}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void doIt() \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+worker = new Thread( this ) ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+worker.start() ;  // calls run() in the new Thread}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// send messages to the server}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void sendMessage( String msg ) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+get a message from the user}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+send the message to the Server}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+class Main \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public static void main( \'81\'63 ) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Client client = new Client( \'81\'63 ) ;  // Thread One}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+client.doIt() ; // Creates Thread Two}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+The Server program is more complex.  It has several tasks: accept incoming connections from Clients, get a message from a Client, and send a message to all Clients.  To do this we can use an extra class called Connection which represents a single Client connection.  The  Server will need to keep a list of Connection objects.  Here is an outline of how you could implement the Server:}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// One for each Client connection}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+class Connection extends Thread \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// IO streams to the Client }
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+InputStream in ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+OutputStream out ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public Connection( \'81\'63 ) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// Thread One: sends a message to the Client }
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// called by the Server}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void sendMessage( String msg ) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+out.write( msg ) }
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+// Thread Two: reads a message from the Client}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void run() \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+while(1) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+in.read( msg ) }
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+server.broadcast( msg ) }
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+/**}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Thread 1: (main) Thread handles calls to broadcast()}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Thread 2: (worker) Thread does the run() method}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+*/}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+class Server implements Runnable \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Thread worker ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+//Thread One: sends messages to all Connection objects}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void broadcast( String msg ) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+for all Connections}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+connection.sendMessage( msg )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+//Thread Two: accepts connections and creates Connection object}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void run() \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+while(1) \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+s = serverSocket.accept() ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+c = new Connection( s, this ) ; //creates a new Thread}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li2127\ri0\lin2127\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+c.start() ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+public void listen() \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+worker = new Thread( this ) ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li1418\ri0\lin1418\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+worker.start() ;}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+class Main \{}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+Server app = new Server() ; // creates Thread One}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\li709\ri0\lin709\rin0\fi0\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+app.listen() ; // creates Thread Two}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af3\afs24\lang1081\loch\f3\fs24\lang1033\ltrpar{\dbch\af4\rtlch \ltrch\loch\loch\f6
+\}}
+\par }

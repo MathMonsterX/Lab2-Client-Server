@@ -9,8 +9,11 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,6 +44,7 @@ public class Client implements Runnable {
     public void sendMessage( String msg ) throws IOException {
         
         DataOutputStream dos = new DataOutputStream( os ) ;
+        
         // sending a message
             //get a message from the user
             //send the message to the Server
@@ -55,11 +59,19 @@ public class Client implements Runnable {
     public void run() {
         while( true ) {
             // receiving a message
-            BufferedReader br = new BufferedReader( is ) ;
-            String msg = br.readLine() ;
-
-            //display the message to the user
-            ec.listenForServerMessages( msg );
+            InputStreamReader r = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader( r ) ;
+            String msg ;
+            try {
+                //read in message from server
+                msg = br.readLine();
+                
+                //display the message to the user
+                ec.handleServerMessages( msg );
+            } catch (IOException ex) {
+                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }
 }
