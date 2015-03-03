@@ -52,6 +52,7 @@ public class Client implements Runnable {
     /**
      * A separate thread method prepares the message to be sent here 
      * and writes the byte stream to the server.
+     * HANDLES SENDING MESSAGES.
      * @param msg   The message to be sent.
      * @throws Exception
      */
@@ -72,6 +73,7 @@ public class Client implements Runnable {
     /**
      * Gets messages from the server and sends them 
      * to the controller to be handled.
+     * HANDLES RECEIVING MESSAGES.
      */
     public void run() {
         while( true ) {
