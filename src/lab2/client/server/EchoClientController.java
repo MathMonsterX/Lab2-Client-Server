@@ -6,6 +6,7 @@
 package lab2.client.server;
 
 import java.net.Socket;
+import java.util.Date;
 
 /**
  *
@@ -15,22 +16,29 @@ public class EchoClientController implements Controller{
 
     EchoClientMainView view;
     MessagingModel model;
-    Socket s;// = new Socket();
+    Client client;
     final int SERVERPORT = 7000;
     
     public void setView(EchoClientMainView view){ this.view = view; }
     public void setModel(MessagingModel model){ this.model = model; }
-
-    public void handleUserMessage( String msg, String user )
+    public void setClient( Client client ){ this.client = client; }
+    
+    public void handleUserMessage( String msg )
     {
         
+
     }
-    public void handleServerMessage(){}
+    
+    void listenForServerMessages( String msg ) {
+        model.logMessage(msg);
+        view.postMessage(msg);
+    }
     
     public void messageListener( String msg, String user )
     {
-        model.logMessage( msg, user );
-        handleUserMessage( msg, user );
+        msg = (new Date().toString() + ": " + user + ": " + msg);
+        model.logMessage( msg );
+        handleUserMessage( msg );
     }
     
     public void updateErrorText(String e){ view.setlblErrorText(e); }
@@ -38,5 +46,7 @@ public class EchoClientController implements Controller{
     public void update(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

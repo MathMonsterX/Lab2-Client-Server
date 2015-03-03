@@ -96,7 +96,7 @@ public class EchoClientMainView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtMessageFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMessageFocusLost
-        txtMessage.setBackground( new Color(txtMessage.getBackground().getRed(),txtMessage.getBackground().getGreen(),txtMessage.getBackground().getBlue(),255));
+        txtMessage.setBackground(new Color(txtMessage.getBackground().getRed(),txtMessage.getBackground().getGreen(),txtMessage.getBackground().getBlue(),255));
     }//GEN-LAST:event_txtMessageFocusLost
 
     private void txtMessageFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMessageFocusGained
@@ -105,9 +105,11 @@ public class EchoClientMainView extends javax.swing.JPanel {
 
     private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed
         controller.messageListener(txtMessage.getText().trim(), username);
+        txtMessage.setText("");
     }//GEN-LAST:event_txtMessageActionPerformed
 
-
+    public void postMessage( String msg ){ messageLog.append( msg ); }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblError;

@@ -24,16 +24,20 @@ public class Lab2ClientServer {
         EchoClientMainView view = new EchoClientMainView() ; 
         EchoClientController controller = new EchoClientController();
         MessagingModel model = new MessagingModel();
+        Client client;
         
         view.setController(controller);
         controller.setView(view);
         controller.setModel(model);
+        controller.setClient( new Client( "152.117.177.191", 54321, controller) );
+        
         model.addController(controller);
         
         clientView.add( view );
         clientView.pack();
         clientView.setVisible(true);
         
+        controller.listenForServerMessages();
         
     }
     

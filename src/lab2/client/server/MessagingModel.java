@@ -28,11 +28,10 @@ public class MessagingModel {
     private void updateControllers(){}
     
     
-    public void logMessage( String txt, String sender )
+    public void logMessage( String txt )
     {
         BufferedWriter bw = null;
         File f = null;
-        txt = (new Date()).toString() + ": " + sender + ": " + txt;
         
         try {
             f = new File("log.txt");
