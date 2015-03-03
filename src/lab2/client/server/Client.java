@@ -6,6 +6,11 @@
  * IDE: Netbeans 8.0.2
  * Date: 3/2/2015
  * 
+ * Sources Consulted:
+ *      Dr. George Hauser
+ *      Chris Boe
+ *      http://www.javabeginner.com/learn-java/java-threads-tutorial
+ *      http://www.oracle.com/technetwork/java/socket-140484.html#client
  */
 package lab2.client.server;
 
@@ -56,8 +61,8 @@ public class Client implements Runnable {
      * @param msg   The message to be sent.
      * @throws Exception
      */
-        public void sendMessage( String msg ) throws Exception {
-        
+    public void sendMessage( String msg ) throws Exception {
+        System.out.println(Thread.currentThread());
         DataOutputStream dos = new DataOutputStream( os ) ;
         
         // sending a message
@@ -77,6 +82,7 @@ public class Client implements Runnable {
      */
     public void run() {
         while( true ) {
+            System.out.println(Thread.currentThread());
             // receiving a message
             InputStreamReader r = new InputStreamReader(is);
             BufferedReader br = new BufferedReader( r ) ;

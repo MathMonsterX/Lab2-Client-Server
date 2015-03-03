@@ -6,6 +6,9 @@
  * IDE: Netbeans 8.0.2
  * Date: 3/2/2015
  * 
+ * Sources Consulted:
+ *      Dr. George Hauser
+ *      Chris Boe
  */
 package lab2.client.server;
 
