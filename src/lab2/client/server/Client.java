@@ -31,12 +31,12 @@ public class Client implements Runnable {
     {
         CLIENT = new Socket( server, port );
         ec = controller;
+        is = CLIENT.getInputStream() ;
+        os = CLIENT.getOutputStream() ;
     }
 
     public void goSocket() throws IOException {
         worker = new Thread( this ) ;
-        is = CLIENT.getInputStream() ;
-        os = CLIENT.getOutputStream() ;
         worker.start() ;  // calls run() in the new Thread
     }
 
