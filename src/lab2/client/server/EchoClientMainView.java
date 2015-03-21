@@ -8,6 +8,56 @@
  * 
  * Sources Consulted:
  *      Dr. George Hauser
+Commits on Mar 3, 2015
+ * Revision History:
+    Fixed Buffered Reader/Completed Lab 
+    The buffered reader was trying to read until a readline. Which it did
+    not find. So instead, used a character array to buffer the input.
+    Project Complete!
+
+    Missing Source Corrections 
+    Corrected some missing sources.
+
+    Minor Alterations
+
+    Duplicate Function Removal 
+    Removed the setMessagesPane performed the same function as the
+    postMessage function in EchoClientMainView.
+
+    View Javadoc 
+    Updated the view javadocs.
+
+    Client Javadoc 
+    Created the client javadoc. Also updated error handling and removed the
+    error label. Instead the messageLog text pane will also be used to
+    report errors.
+
+Commits on Mar 2, 2015
+    Client Thread 
+    I tried using a Client class that extends Runnable. Yes the client side
+    implementation has issues and I'm not sure where to go.
+
+Commits on Feb 27, 2015
+    Message Log and Error Notify 
+    Setting up a system that saves error messages and regular messages in
+    the message log. Users are also known by their logged in user name (on
+    local computer).
+
+    View Changes 
+    Methods implemented to cause changes in the view's objects. Calls
+    controller which calls the model (or not), then back.
+
+    MVC Setup
+    Set up connections between the model, view, and controller.
+
+    Client View Alterations
+    Beginning to prepare listener for controller.
+
+    Basic Client View Look 
+    Changed the look of the client view according to current requirements.
+
+    Initializing files 
+    Added the files needed for the project.
  */
 package lab2.client.server;
 

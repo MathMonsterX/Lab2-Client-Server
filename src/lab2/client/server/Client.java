@@ -11,6 +11,36 @@
  *      Chris Boe
  *      http://www.javabeginner.com/learn-java/java-threads-tutorial
  *      http://www.oracle.com/technetwork/java/socket-140484.html#client
+ *
+ * Revision History:
+
+Commits on Mar 3, 2015
+    Fixed Buffered Reader/Completed Lab 
+    The buffered reader was trying to read until a readline. Which it did
+    not find. So instead, used a character array to buffer the input.
+    Project Complete!
+
+    Missing Source Corrections 
+    Corrected some missing sources.
+
+    EchoClientController Javadoc 
+    Created the javadocs for the EchoClientController.
+
+    Client Javadoc
+    Created the client javadoc. Also updated error handling and removed the
+    error label. Instead the messageLog text pane will also be used to
+    report errors.
+
+Commits on Mar 2, 2015
+    Input and Output Streams
+    Moved intiliazation of input stream and output stream to the
+    constructor.
+
+    Documentation and Client
+
+    Client Thread
+    I tried using a Client class that extends Runnable. Yes the client side
+    implementation has issues and I'm not sure where to go
  */
 package lab2.client.server;
 
@@ -21,6 +51,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.net.SocketException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,28 +61,31 @@ import java.net.Socket;
  */
 public class Client implements Runnable {
 
-    Thread worker;
-    Socket CLIENT;
-    InputStream is;
-    OutputStream os ;
-    EchoClientController ec;
+    private Thread worker;
+    private final String server;
+    private final int port;
+    private Socket CLIENT;
+    private InputStream is;
+    private OutputStream os ;
+    private final EchoClientController ec;
     
-    Client( String server, int port, EchoClientController controller ) throws IOException 
+    private final int CONNECT_RETRY = 1000 * 5;
+    
+    Client( String server, int port, EchoClientController controller )
     {
-        CLIENT = new Socket( server, port );
+        this.server = server;
+        this.port = port;
         ec = controller;
-        is = CLIENT.getInputStream() ;
-        os = CLIENT.getOutputStream() ;
     }
 
     /**
      * Creates a new thread and begins to run.
-     * @throws Exception    Underlying methods may throw an exception.
      * @see Client.run()
      */
-    public void goSocket() throws Exception {
+    public void goSocket() {
         worker = new Thread( this ) ;
         worker.start() ;  // calls run() in the new Thread
+        
     }
 
     // send messages to the server
@@ -62,8 +98,7 @@ public class Client implements Runnable {
      * @throws Exception
      */
     public void sendMessage( String msg ) throws Exception {
-        System.out.println(Thread.currentThread());
-        DataOutputStream dos = new DataOutputStream( os ) ;
+        DataOutputStream dos = new DataOutputStream( CLIENT.getOutputStream() ) ;
         
         // sending a message
             //get a message from the user
@@ -81,24 +116,58 @@ public class Client implements Runnable {
      * HANDLES RECEIVING MESSAGES.
      */
     public void run() {
+        openSocket();
+        serverMessageListener();
+    }
+    
+    private void serverMessageListener()
+    {
         char[] buff = new char[500];
-        while( true ) {
-            System.out.println(Thread.currentThread());
+        boolean connected = true;
+        while( connected ) {
             // receiving a message
-            InputStreamReader r = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader( r ) ;
-            String msg ;
+            InputStreamReader r;
+            BufferedReader br;
+            String msg;
             try {
+                r = new InputStreamReader( CLIENT.getInputStream() );
+                br = new BufferedReader( r ) ;
+            
                 //read in message from server
                 int len = br.read(buff);
                 msg = new String(buff, 0, len);
                 
                 //display the message to the user
                 ec.handleServerMessages( msg );
-            } catch (IOException ex) {
-                ec.updateErrorText(ex.getMessage());
+            } catch (SocketException se){
+                ec.updateErrorText( "Connection to the server dropped" );
+                connected = false;
+                run();
+            }catch( Exception ex ) {
+                ec.updateErrorText( "Stream Read Error" );
             }
-            
+            //openSocket();
         }
+    }
+    private void openSocket()
+    {
+        boolean notConnected = true;
+        
+        while( notConnected ) {
+            try{
+                CLIENT = new Socket( server, port );
+                notConnected = false;
+            } catch (IOException ex) {
+            
+                ec.updateErrorText("Unable to establish a conneciton to the server.");
+                // logging
+                try {
+                    Thread.sleep( CONNECT_RETRY );
+                } catch(InterruptedException e) {
+                // logging
+                }
+            }
+        }
+        
     }
 }
