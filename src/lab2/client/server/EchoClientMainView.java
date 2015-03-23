@@ -70,7 +70,7 @@ import java.util.Date;
 public class EchoClientMainView extends javax.swing.JPanel {
 
     final String username = System.getProperty("user.name");
-    EchoClientController controller;
+    private EchoClientController controller;
     
     /**
      * Creates new form ClientMainView
@@ -86,6 +86,14 @@ public class EchoClientMainView extends javax.swing.JPanel {
      * @param controller    The controller that is used to update the view
      */
     public void setController(EchoClientController controller){ this.controller = controller; }
+    
+    /**
+     * Sets the enabled property on btnRetry.
+     * @param r Boolean indicating whether to enable or disable btnRetry.
+     * @see btnRetry
+     */
+    public void enableRetry( Boolean r ){ btnRetry.setEnabled(r); }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,9 +103,13 @@ public class EchoClientMainView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         txtMessage = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         messageLog = new javax.swing.JTextArea();
+        btnRetry = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setBackground(new java.awt.Color(102, 255, 102));
         setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
@@ -116,6 +128,14 @@ public class EchoClientMainView extends javax.swing.JPanel {
         messageLog.setRows(5);
         jScrollPane1.setViewportView(messageLog);
 
+        btnRetry.setText("Retry");
+        btnRetry.setEnabled(false);
+        btnRetry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,15 +144,20 @@ public class EchoClientMainView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
-                    .addComponent(txtMessage))
+                    .addComponent(txtMessage)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnRetry)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRetry)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -142,6 +167,11 @@ public class EchoClientMainView extends javax.swing.JPanel {
         controller.messageListener( new Date().toString() + ": " + username + ": " + txtMessage.getText().trim() );
         txtMessage.setText("");
     }//GEN-LAST:event_txtMessageActionPerformed
+
+    private void btnRetryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetryActionPerformed
+        controller.retryConnection();
+        btnRetry.setEnabled( false );
+    }//GEN-LAST:event_btnRetryActionPerformed
 
     /**
      * Sets the text of the text area messageLog. 
@@ -153,6 +183,8 @@ public class EchoClientMainView extends javax.swing.JPanel {
     public void postMessage( String msg ){ messageLog.append( msg + "\n" ); }//messageLog.setText( messageLog.getText() + "\n" + msg); }//
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRetry;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea messageLog;
     private javax.swing.JTextField txtMessage;

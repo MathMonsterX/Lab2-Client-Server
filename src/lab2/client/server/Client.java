@@ -11,6 +11,7 @@
  *      Chris Boe
  *      http://www.javabeginner.com/learn-java/java-threads-tutorial
  *      http://www.oracle.com/technetwork/java/socket-140484.html#client
+*       http://stackoverflow.com/questions/21067551/auto-reconnect-to-a-server-using-a-socket-in-java
  *
  * Revision History:
 
@@ -52,8 +53,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -68,14 +67,17 @@ public class Client implements Runnable {
     private InputStream is;
     private OutputStream os ;
     private final EchoClientController ec;
+    private boolean connected;
     
     private final int CONNECT_RETRY = 1000 * 5;
+    private long RETRY_TIME = 1000 * 15;
     
     Client( String server, int port, EchoClientController controller )
     {
         this.server = server;
         this.port = port;
         ec = controller;
+        connected = false;
     }
 
     /**
@@ -120,11 +122,16 @@ public class Client implements Runnable {
         serverMessageListener();
     }
     
+    /**
+     * Listens for messages from the server.
+     */
     private void serverMessageListener()
     {
         char[] buff = new char[500];
-        boolean connected = true;
+        //boolean connected = true;
+        while( true ){
         while( connected ) {
+            ec.enableRetry( false );
             // receiving a message
             InputStreamReader r;
             BufferedReader br;
@@ -142,24 +149,33 @@ public class Client implements Runnable {
             } catch (SocketException se){
                 ec.updateErrorText( "Connection to the server dropped" );
                 connected = false;
-                run();
+                ec.enableRetry( true );
+                //run();
             }catch( Exception ex ) {
-                ec.updateErrorText( "Stream Read Error" );
+                //ec.updateErrorText( "Stream Read Error" );
             }
             //openSocket();
         }
+        }
     }
-    private void openSocket()
+    
+    /**
+     * Opens a socket connection to the server 
+     * to listen for incoming messages.
+     */
+    public void openSocket()
     {
-        boolean notConnected = true;
+        long start = System.currentTimeMillis();
+        long diff = 0;
         
-        while( notConnected ) {
+        while( !connected && RETRY_TIME > ( diff - start ) ) {
             try{
                 CLIENT = new Socket( server, port );
-                notConnected = false;
+                ec.enableRetry( false );
+                connected = true;
             } catch (IOException ex) {
-            
-                ec.updateErrorText("Unable to establish a conneciton to the server.");
+                diff = System.currentTimeMillis();
+                ec.updateErrorText("Unable to establish a connection to the server.");
                 // logging
                 try {
                     Thread.sleep( CONNECT_RETRY );
@@ -168,6 +184,8 @@ public class Client implements Runnable {
                 }
             }
         }
+        
+        if( diff >= RETRY_TIME ){ ec.enableRetry( true ); }
         
     }
 }

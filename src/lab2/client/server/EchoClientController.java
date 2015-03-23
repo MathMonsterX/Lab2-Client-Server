@@ -72,6 +72,9 @@ Commits on Feb 27, 2015
  */
 package lab2.client.server;
 
+import java.io.IOException;
+import java.net.InetAddress;
+
 /**
  *
  * @author Sheyla
@@ -111,6 +114,7 @@ public class EchoClientController {
      */
     public void listenForServerMessages() {
         try {
+            //client.openSocket();
             client.goSocket();
         } catch (Exception ex) {
             updateErrorText(ex.getMessage());
@@ -157,5 +161,16 @@ public class EchoClientController {
         view.postMessage(e); 
         model.logMessage(e); 
     } 
+
+    void retryConnection() {
+        try {
+            setClient( new Client( InetAddress.getLocalHost().getHostAddress(), 54321, this) );
+        } catch (IOException ex) {
+            updateErrorText(ex.getMessage());
+        }
+        listenForServerMessages();
+    }
+
+    void enableRetry(boolean b) { view.enableRetry(b); }
     
 }

@@ -81,6 +81,7 @@ public class Lab2ClientServer {
         controller.setView(view);
         controller.setModel(model);
         clientView.add( view );
+        
         try {
             controller.setClient( new Client( InetAddress.getLocalHost().getHostAddress(), 54321, controller) );
         } catch (IOException ex) {
@@ -88,7 +89,6 @@ public class Lab2ClientServer {
         }
         
         model.addController(controller);
-        
         
         clientView.pack();
         clientView.setVisible(true);
